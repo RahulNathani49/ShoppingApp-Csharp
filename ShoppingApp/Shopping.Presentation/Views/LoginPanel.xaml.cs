@@ -27,5 +27,7 @@ namespace Shopping.Presentation.Views
             InitializeComponent();
             DataContext = new UserViewModel();
         }
+
+      
     }
 }

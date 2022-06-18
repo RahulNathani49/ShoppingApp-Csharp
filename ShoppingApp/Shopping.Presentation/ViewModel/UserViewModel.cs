@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Shopping.Presentation.ViewModel
 {
@@ -13,7 +15,9 @@ namespace Shopping.Presentation.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        
+        public static string loggedUser;
+
+
         public DelegateCommand LoginCommand { get; }
 
         private Service service;
@@ -21,18 +25,22 @@ namespace Shopping.Presentation.ViewModel
         public string UserName
         {
             get { return userName; }
-            set { userName = value;
+            set
+            {
+                userName = value;
                 LoginCommand.NotifyCanExecuteChanged();
                 NotifyPropertyChanged(nameof(UserName));
-                
-                    }
+
+            }
         }
 
         private string password;
         public string Password
         {
             get { return password; }
-            set { password = value;
+            set
+            {
+                password = value;
                 LoginCommand.NotifyCanExecuteChanged();
                 NotifyPropertyChanged(nameof(Password));
             }
@@ -64,10 +72,17 @@ namespace Shopping.Presentation.ViewModel
 
             if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
             {
-                bool check = service.getPassword(UserName,Password);
-                if(check)
+                bool check = service.getPassword(UserName, Password);
+                if (check)
                 {
-                    Message = "Successfully Logged In !!";
+                    Message = "Logged in Successfully ";
+                    loggedUser = userName;
+                    int id = service.getUserId(userName);
+                    Console.WriteLine(id);
+
+                    UserName = null;
+                    Password = null;
+                   
                 }
                 else
                 {
@@ -76,9 +91,12 @@ namespace Shopping.Presentation.ViewModel
 
             }
         }
+
+
+
         private void NotifyPropertyChanged(string parameterName)
         {
-            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(parameterName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(parameterName));
         }
     }
 }

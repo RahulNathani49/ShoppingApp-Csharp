@@ -12,9 +12,10 @@ namespace Shopping.Presentation
     {
   public static void Main()
         {
-            HashedPassword hs = PasswordHasher.HashPassword("apple");
-            Users user = new Users("Het", hs.Hash,hs.Salt,DateTime.Now,false) ;
+            HashedPassword hs = PasswordHasher.HashPassword("pass@!23");
+            Users user = new Users("harmeet", hs.Hash,hs.Salt,DateTime.Now,false) ;
             BookRepository bk = new BookRepository();
+            
             bk.CreateBook(user);
         }
     }

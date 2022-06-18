@@ -1,4 +1,5 @@
-﻿using Shopping.Data;
+﻿using Shopping.Core.Entities;
+using Shopping.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,6 @@ namespace Shopping.Domain.Services
 
         public bool getPassword(string userName,string password)
         {
-
- 
             HashedPassword hs=  userRepository.getPassword(userName);
             
             if (hs != null)
@@ -31,7 +30,8 @@ namespace Shopping.Domain.Services
                 if (ps == PasswordResult.Correct)
                 {
                    bool check= userRepository.setLoggedIn(userName,true);
-                    return check;
+                   return check;
+                   
                 }
                 else
                 {
@@ -40,5 +40,36 @@ namespace Shopping.Domain.Services
             }
             return false;
         }
+
+        public List<Products> GetProducts()
+        {
+            List<Products> products = userRepository.GetProducts();
+            return products;
+        }
+
+        public int getUserId(string userName)
+        {
+           return userRepository.getUserId(userName);
+
+       
+        }
+
+        public bool addToCart(int userID, int productId, int quantity)
+        {
+
+          bool exists=  userRepository.checkIfItemExists(userID,productId);
+            if (exists)
+            {
+                return userRepository.updateQuantity(userID,productId,quantity);
+
+            }
+            else
+            {
+              return userRepository.addToCart(userID,productId,quantity);
+            }
+         
+            
+        }
     }
+
 }

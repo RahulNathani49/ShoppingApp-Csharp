@@ -1,15 +1,6 @@
 create database ShoppingCart;
 use ShoppingCart;
 
-create Table Users(
-UserId int Identity(1001,1) Primary Key,
-UserName nvarchar(50) NOT NULL,
-HashPassword varbinary(64) NOT NULL,
-Salt binary(64) NOT NULL,
-IsLoggedIn bit, 
-CreatedOn DateTime2 NOT NULL,
-
-) 
 
 create Table Users1(
 UserId int Identity(1001,1) Primary Key,
@@ -21,16 +12,27 @@ CreatedOn DateTime2 NOT NULL,
 ) 
 
 select * from Users1;
-drop table Users
-insert into users values('rahul','pass@123')
-insert int users values('Omkar','value@123');
-insert int users values('Harmeet','key@123');
 
-select * from Users
+create Table Inventory(
+ProductID int Identity(10001,1) Primary Key,
+ProductName nvarchar(50) NOT NULL,
+ProductCategory nvarchar(50) NOT NULL,
+ProductDescription nvarchar(50) NOT NULL,
+ProductPrice decimal not null,
+Discount decimal
+)
+drop table inventory;
+insert into dbo.inventory values ('Nike Shoes','Shoes','Formal Footwear',99.80,11.90);
+insert into dbo.inventory values ('Polo Shirt','Shirt','Formal white Shirt',55.80,10.00);
 
-delete from Users where UserId in(1002,1003);
-select * from Users;
-truncate table Users
+select * from dbo.Inventory
 
-update users set IsLoggedIn=0 where UserName='Harmeet'
+
+create table Cart(
+CartId int Identity,
+UserId int NOT NULL,
+ProductID int NOT NULL,
+Quantity int NOT NULL,
+Primary Key(UserId,ProductId)
+)
 

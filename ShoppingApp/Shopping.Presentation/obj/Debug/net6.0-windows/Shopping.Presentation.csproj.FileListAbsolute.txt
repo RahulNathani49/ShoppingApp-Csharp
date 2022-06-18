@@ -52,3 +52,5 @@ C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\bin\Debug
 C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\obj\Debug\net6.0-windows\Views\DashboardPanel.g.cs
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\obj\Debug\net6.0-windows\Views\DashboardPanel.baml

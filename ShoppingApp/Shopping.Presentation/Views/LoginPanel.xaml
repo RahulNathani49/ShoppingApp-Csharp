@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Shopping.Presentation.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
         <Label Content="Login Page" HorizontalAlignment="Center"/>
         <Label Content="{Binding Path=Message}" HorizontalAlignment="Center"/>
@@ -41,4 +42,5 @@
 
 
     </StackPanel>
+    
 </UserControl>

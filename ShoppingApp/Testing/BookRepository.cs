@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Shopping.Presentation;
 using System;
 using System.Collections.Generic;
@@ -12,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    
+
     public class BookRepository
     {
         private readonly string connectionString;
-        
+
         public BookRepository()
         {
             connectionString = ConfigurationManager.ConnectionStrings["ShoppingCartDB"].ConnectionString;
         }
-    
+
 
         public void CreateBook(Users user)
         {
@@ -34,14 +33,14 @@ namespace Data.Repositories
 
             cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = user.UserName;
             cmd.Parameters.Add("@HashPassword", SqlDbType.VarBinary).Value = user.HashPassword;
-            cmd.Parameters.Add("@Salt", SqlDbType.VarBinary).Value =user.Salt ;
+            cmd.Parameters.Add("@Salt", SqlDbType.VarBinary).Value = user.Salt;
             cmd.Parameters.Add("@IsLoggedIn", SqlDbType.Bit).Value = user.IsLoggedIn;
             cmd.Parameters.Add("@CreatedOn", SqlDbType.DateTime2).Value = DateTime.Now;
-            
+
             cmd.ExecuteScalar();
-           
+
         }
-   
+
 
     }
 }
