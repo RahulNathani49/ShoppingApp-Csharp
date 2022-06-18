@@ -12,8 +12,8 @@ namespace Shopping.Presentation
     {
   public static void Main()
         {
-            HashedPassword hs = PasswordHasher.HashPassword("key@123");
-            Users user = new Users("Harmeet", hs.Hash,hs.Salt,DateTime.Now,false) ;
+            HashedPassword hs = PasswordHasher.HashPassword("apple");
+            Users user = new Users("Het", hs.Hash,hs.Salt,DateTime.Now,false) ;
             BookRepository bk = new BookRepository();
             bk.CreateBook(user);
         }

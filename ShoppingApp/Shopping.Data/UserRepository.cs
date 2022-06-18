@@ -24,12 +24,17 @@ namespace Shopping.Data
             using SqlConnection conn = new(connectionString);
             conn.Open();
             using SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "select Salt,HashPassword from dbo.Users where UserName = @userName";
+            cmd.CommandText = "select HashPassword,Salt from dbo.Users1 where UserName = @userName";
             cmd.Parameters.Add("@userName", SqlDbType.NVarChar).Value =userName;
             SqlDataReader reader = cmd.ExecuteReader();
-            
-            HashedPassword hp = GetPassword(reader);
-            return hp;
+
+            if (reader.Read())
+            {
+                HashedPassword hp = GetPassword(reader);
+                return hp;
+            }
+
+            return null;       
         }
 
         public bool setLoggedIn(string userName,bool status)
@@ -51,14 +56,11 @@ namespace Shopping.Data
 
         private HashedPassword GetPassword(SqlDataReader reader)
         {
-              byte[] salt = null;
-              byte[] hash = null;
+              byte[] salt = (byte[])reader[1];
+              byte[] hash = (byte[])reader[0];
         
-                if (reader.Read())
-                {
-                    salt= (byte[])reader[0];
-                hash = (byte[])reader[1];
-            }
+                
+                
       
             
             return new HashedPassword(salt, hash);

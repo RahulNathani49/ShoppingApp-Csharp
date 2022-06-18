@@ -22,15 +22,15 @@ namespace Shopping.Domain.Services
         public bool getPassword(string userName,string password)
         {
 
-            
+ 
             HashedPassword hs=  userRepository.getPassword(userName);
-            PasswordResult ps = new PasswordResult();
+            
             if (hs != null)
             {
-              ps = PasswordHasher.CheckPassword(password, hs);
-                if (ps.Equals(PasswordResult.Correct))
+                PasswordResult ps = PasswordHasher.CheckPassword(password, hs);
+                if (ps == PasswordResult.Correct)
                 {
-                 bool check= userRepository.setLoggedIn(userName,true);
+                   bool check= userRepository.setLoggedIn(userName,true);
                     return check;
                 }
                 else
