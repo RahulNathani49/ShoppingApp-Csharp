@@ -1,0 +1,12 @@
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\bin\Debug\net6.0\Shopping.Core.deps.json
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\bin\Debug\net6.0\Shopping.Core.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\bin\Debug\net6.0\Shopping.Core.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.csproj.AssemblyReference.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.AssemblyInfoInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.AssemblyInfo.cs
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.csproj.CoreCompileInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\refint\Shopping.Core.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\Shopping.Core.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Core\obj\Debug\net6.0\ref\Shopping.Core.dll

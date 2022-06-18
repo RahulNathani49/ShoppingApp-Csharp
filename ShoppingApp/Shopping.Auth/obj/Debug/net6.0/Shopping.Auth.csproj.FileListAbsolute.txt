@@ -1,0 +1,12 @@
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\bin\Debug\net6.0\Shopping.Auth.deps.json
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\bin\Debug\net6.0\Shopping.Auth.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\bin\Debug\net6.0\Shopping.Auth.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.csproj.AssemblyReference.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.AssemblyInfoInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.AssemblyInfo.cs
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.csproj.CoreCompileInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\refint\Shopping.Auth.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\Shopping.Auth.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Auth\obj\Debug\net6.0\ref\Shopping.Auth.dll

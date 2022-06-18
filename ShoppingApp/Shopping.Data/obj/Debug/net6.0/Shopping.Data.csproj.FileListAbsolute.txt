@@ -1,0 +1,17 @@
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Data.deps.json
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Data.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Data.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Core.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Core.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.csproj.AssemblyReference.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.AssemblyInfoInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.AssemblyInfo.cs
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.csproj.CoreCompileInputs.cache
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.csproj.CopyComplete
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\refint\Shopping.Data.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\Shopping.Data.pdb
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\obj\Debug\net6.0\ref\Shopping.Data.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Auth.dll
+C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Data\bin\Debug\net6.0\Shopping.Auth.pdb
