@@ -8,6 +8,44 @@ namespace Shopping.Core.Entities
 {
     public class Cart
     {
+        public Cart(string productName, string productDescription ,decimal productPrice, int productQuantity, decimal discount)
+        {
+            ProductName = productName;
+            ProductPrice = productPrice;
+            ProductDescription = productDescription;
+            ProductQuantity = productQuantity;
+            Discount = discount;
+        }
+
+        public string ProductName
+        {
+            get; set;
+        }
+
+        public decimal ProductPrice
+        {
+            get; set;
+        }
+        public string ProductDescription
+        {
+            get; set;
+        }
+
+        public int ProductQuantity
+        {
+            get; set;
+        }
+
+        public Decimal ItemTotal
+        {
+            get; set;
+        }
+
+        public decimal Discount
+        {
+            get;set;
+        }
+
 
     }
 }

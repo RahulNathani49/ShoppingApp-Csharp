@@ -21,11 +21,9 @@ ProductDescription nvarchar(50) NOT NULL,
 ProductPrice decimal not null,
 Discount decimal
 )
-drop table inventory;
+
 insert into dbo.inventory values ('Nike Shoes','Shoes','Formal Footwear',99.80,11.90);
 insert into dbo.inventory values ('Polo Shirt','Shirt','Formal white Shirt',55.80,10.00);
-
-select * from dbo.Inventory
 
 
 create table Cart(
@@ -36,3 +34,13 @@ Quantity int NOT NULL,
 Primary Key(UserId,ProductId)
 )
 
+ALTER TABLE Cart
+ADD FOREIGN KEY (ProductID) REFERENCES Inventory(ProductID);
+
+select * from Inventory;
+select * from cart;
+
+
+select Inventory.ProductName,Inventory.ProductDescription,Inventory.ProductPrice,Inventory.Discount,Cart.Quantity from Inventory  join Cart  on 
+Inventory.ProductID=Cart.ProductID
+ where Cart.UserId=1001;

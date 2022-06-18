@@ -12,7 +12,7 @@ namespace Shopping.Domain.Services
     public class Service
     {
         private readonly UserRepository userRepository;
-           
+
 
 
         public Service()
@@ -20,18 +20,18 @@ namespace Shopping.Domain.Services
             userRepository = new UserRepository();
         }
 
-        public bool getPassword(string userName,string password)
+        public bool getPassword(string userName, string password)
         {
-            HashedPassword hs=  userRepository.getPassword(userName);
-            
+            HashedPassword hs = userRepository.getPassword(userName);
+
             if (hs != null)
             {
                 PasswordResult ps = PasswordHasher.CheckPassword(password, hs);
                 if (ps == PasswordResult.Correct)
                 {
-                   bool check= userRepository.setLoggedIn(userName,true);
-                   return check;
-                   
+                    bool check = userRepository.setLoggedIn(userName, true);
+                    return check;
+
                 }
                 else
                 {
@@ -49,26 +49,49 @@ namespace Shopping.Domain.Services
 
         public int getUserId(string userName)
         {
-           return userRepository.getUserId(userName);
+            return userRepository.getUserId(userName);
 
-       
+
         }
 
         public bool addToCart(int userID, int productId, int quantity)
         {
 
-          bool exists=  userRepository.checkIfItemExists(userID,productId);
+            bool exists = userRepository.checkIfItemExists(userID, productId);
             if (exists)
             {
-                return userRepository.updateQuantity(userID,productId,quantity);
+                return userRepository.updateQuantity(userID, productId, quantity);
 
             }
             else
             {
-              return userRepository.addToCart(userID,productId,quantity);
+                return userRepository.addToCart(userID, productId, quantity);
             }
-         
-            
+
+
+        }
+
+        public List<Cart> getCartItems(int userID)
+        {
+            List<Cart> cartItems = userRepository.getCartDetails(userID);
+            calulateTotalPriceForEachitem(cartItems);
+            return cartItems;
+
+        }
+
+        private void calulateTotalPriceForEachitem(List<Cart> cartItems)
+        {
+            Cart cart = null;
+            for (int i = 0; i < cartItems.Count; i++)
+            {
+                cart = cartItems[i];
+                decimal price = cart.ProductPrice;
+                decimal discount = cart.Discount;
+                int quantity = cart.ProductQuantity;
+                decimal finalPrice = (price - discount) * quantity;
+                cartItems[i].ItemTotal = finalPrice;
+            }
+
         }
     }
 

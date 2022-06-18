@@ -69,6 +69,41 @@ namespace Shopping.Data
             return i != 0;
         }
 
+        public List<Cart> getCartDetails(int userID)
+        {
+            List<Cart> cartDetails = new List<Cart>();
+            using SqlConnection conn = new(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select Inventory.ProductName,Inventory.ProductDescription,Inventory.ProductPrice, " +
+                "Cart.Quantity,Inventory.Discount from Inventory join Cart  on " +      
+                "Inventory.ProductID = Cart.ProductID " +
+                " where Cart.UserId = @userID; ";
+            cmd.Parameters.Add("@userID", SqlDbType.Int).Value = userID;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            
+            while (reader.Read())
+            {
+                cartDetails.Add(getCartList(reader));
+
+            }
+
+            return cartDetails;
+
+        }
+
+        private Cart getCartList(SqlDataReader reader)
+        {
+            return new Cart(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetDecimal(2),
+                            reader.GetInt32(3),
+                            reader.GetDecimal(4)
+                        );
+        }
+
         public bool checkIfItemExists(int userID, int productId)
         {
             using SqlConnection conn = new(connectionString);

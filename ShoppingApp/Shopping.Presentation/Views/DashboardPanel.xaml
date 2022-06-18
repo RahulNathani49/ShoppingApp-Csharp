@@ -63,7 +63,7 @@
         <Label Content="Your Cart" HorizontalAlignment="Center" FontSize="30px" Background="CadetBlue"/>
         <Separator Height="20" Background="Transparent"/>
 
-        <DataGrid Height="100" ItemsSource="{Binding Path=CartItems}"
+        <DataGrid Height="100" ItemsSource="{Binding Path=ListOfCartItems}"
                   SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product Name"
@@ -73,13 +73,21 @@
                                     Width="Auto"
                                     Binding="{Binding Path=ProductDescription}"
                                     />
+                <DataGridTextColumn Header="Product Price"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductPrice}"
+                                    />
+                <DataGridTextColumn Header="Product Discount"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Discount}"
+                                    />
                 <DataGridTextColumn Header="Product Quantity"
                                     Width="Auto"
                                     Binding="{Binding Path=ProductQuantity}"
                                     />
                 <DataGridTextColumn Header="Total"
                                     Width="Auto"
-                                    Binding="{Binding Path=Total}"
+                                    Binding="{Binding Path=ItemTotal}"
                                     />
                
             </DataGrid.Columns>
@@ -88,7 +96,7 @@
 
 
 
-        <Label Content="Total to Pay : " HorizontalAlignment="Center"/>
+        <Label Content="{Binding Path=TotalCartPrice}" HorizontalAlignment="Center"/>
         <Separator Height="20" Background="Transparent"/>
 
         <Button Content="Proceed to CheckOut" Command="{Binding Path=CheckOutCommand}" Width="200" Height="50"/>
