@@ -25,9 +25,16 @@ namespace Shopping.Presentation.Views
         public LoginPanel()
         {
             InitializeComponent();
+            
             DataContext = new UserViewModel();
+           
         }
 
-      
+        private void LoginClick(object sender, RoutedEventArgs e)
+        {
+             
+           /* NavigationService.GetNavigationService(this)
+      .Navigate(new Uri("/Views/LoginPanel.xaml", UriKind.RelativeOrAbsolute));*/
+        }
     }
 }

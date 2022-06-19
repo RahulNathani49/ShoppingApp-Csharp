@@ -95,7 +95,7 @@
         </DataGrid>
 
 
-
+             
         <Label Content="{Binding Path=TotalCartPrice}" HorizontalAlignment="Center"/>
         <Separator Height="20" Background="Transparent"/>
 

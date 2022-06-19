@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace Shopping.Presentation.Views
 {
-    /// <summary>
-    /// Interaction logic for DashboardPanel.xaml
-    /// </summary>
+ 
     public partial class DashboardPanel : UserControl
     {
         public DashboardPanel()

@@ -24,6 +24,8 @@ namespace Shopping.Presentation.Views
         public MainWindow()
         {
             InitializeComponent();
+     
         }
+
     }
 }

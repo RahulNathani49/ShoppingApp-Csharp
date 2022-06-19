@@ -37,10 +37,13 @@ Primary Key(UserId,ProductId)
 ALTER TABLE Cart
 ADD FOREIGN KEY (ProductID) REFERENCES Inventory(ProductID);
 
-select * from Inventory;
-select * from cart;
+create Table UserToOrderMap(
+UserId int Foreign Key references Users1(UserId) NOT NULL,
+OrderId int Primary kEY Identity(2000,1)
+)
 
-
-select Inventory.ProductName,Inventory.ProductDescription,Inventory.ProductPrice,Inventory.Discount,Cart.Quantity from Inventory  join Cart  on 
-Inventory.ProductID=Cart.ProductID
- where Cart.UserId=1001;
+create Table Orders(
+OrderId int Foreign Key references UserToOrderMap(OrderId),
+ProductId int Not NUll Foreign Key References Inventory(ProductID),
+Quantity int Not Null,
+)
