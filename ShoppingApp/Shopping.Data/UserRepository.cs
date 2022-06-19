@@ -93,6 +93,136 @@ namespace Shopping.Data
 
         }
 
+        public bool emptyCart(int userId)
+        {
+            using SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "delete from dbo.cart where UserId= @userId";
+                
+
+            cmd.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
+           
+
+            int i = cmd.ExecuteNonQuery();
+            return i != 0;
+        }
+
+        public List<Order> displayOrderHistory(int userId)
+        {
+            List<Order> orders = new List<Order>();
+
+            using SqlConnection conn = new(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select orders.OrderId,Orders.quantity,ProductName,ProductPrice " +
+                                "from Orders inner join Inventory " +
+                                "on Inventory.ProductID = Orders.ProductId " +
+                                    "where Orders.OrderId in(select OrderId from UserToOrderMap where UserId = @userId);";
+            cmd.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                orders.Add(createOrderObj(reader));
+            }
+
+            return orders;
+        }
+
+        private Order createOrderObj(SqlDataReader reader)
+        {
+            return new Order(
+                            reader.GetInt32(0),
+                            reader.GetString(2),
+                            reader.GetInt32(1),
+                            reader.GetDecimal(3)
+                         );
+        }
+
+        public List<int> getOrderIds(int userID)
+        {
+            List<int> orderidlist = new List<int>();
+
+            using SqlConnection conn = new(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select OrderId from dbo.UserToOrderMap where UserId  = @userID";
+            cmd.Parameters.Add("@userID", SqlDbType.NVarChar).Value = userID;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                orderidlist.Add(reader.GetInt32(0));
+            }
+
+            return orderidlist;
+        }
+
+        public bool createOrder(Cart itemInUserCart, int orderId)
+        { 
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO dbo.Orders(OrderId,ProductId,Quantity) " +
+                              "VALUES(@orderId,@productId,@quantity);";
+
+            cmd.Parameters.Add("@orderId", SqlDbType.Int).Value = orderId;
+            cmd.Parameters.Add("@productId", SqlDbType.Int).Value = itemInUserCart.ProductId;
+            cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = itemInUserCart.ProductQuantity;
+
+
+            int id=cmd.ExecuteNonQuery();
+            if (id > 0)
+            {
+                return true;
+            }
+            return false;
+            
+        }
+
+        public List<Cart> getItems(int userId)
+        {
+            List<Cart> items = new List<Cart>();
+            using SqlConnection conn = new(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select ProductId,Quantity from dbo.Cart where UserId=@userId";
+            cmd.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                items.Add(GetItemsFromReader(reader));
+            }
+            return items;
+        }
+        private Cart GetItemsFromReader(SqlDataReader reader)
+        {
+            return new Cart(
+                           reader.GetInt32(0),
+                           reader.GetInt32(1)
+                        );
+        }
+
+        public int createOrderId(int userID)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO dbo.UserToOrderMap(UserId) " +
+                              "OUTPUT Inserted.OrderId " +
+                              "VALUES(@UserId);";
+
+            cmd.Parameters.Add("@UserId", SqlDbType.Int).Value = userID;
+        
+
+            int id = (int)cmd.ExecuteScalar();
+            if (id > 0)
+            {
+                return id;
+            }
+            return 0;
+        }
 
         private Cart getCartList(SqlDataReader reader)
         {

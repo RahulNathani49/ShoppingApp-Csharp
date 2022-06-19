@@ -8,11 +8,19 @@ namespace Shopping.Core.Entities
 {
     public class Order
     {
+        public Order(int orderId, string productName, int quantity, decimal price)
+        {
+            OrderId = orderId;
+            ProductName = productName;
+            Quantity = quantity;
+            Price = price;
+        }
+
         public int OrderId { get;  }
         public string ProductName { get; set; }
 
         public int Quantity { get; set; }
-        public int Total { get; set; }
+        public decimal Price { get; set; }
 
     }
 }

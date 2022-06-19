@@ -44,6 +44,8 @@ OrderId int Primary kEY Identity(2000,1)
 
 create Table Orders(
 OrderId int Foreign Key references UserToOrderMap(OrderId),
-ProductId int Not NUll Foreign Key References Inventory(ProductID),
-Quantity int Not Null,
+ProductId int Not NUll Foreign Key References Inventory(ProductID)
 )
+select * from Inventory;
+use ShoppingCart
+select orders.OrderId,Orders.quantity,ProductName,ProductPrice from Orders inner join Inventory on Inventory.ProductID = Orders.ProductId;

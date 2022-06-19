@@ -99,43 +99,49 @@
 
         <Label Content="{Binding Path=TotalCartPrice}" HorizontalAlignment="Center"/>
         <Separator Height="20" Background="Transparent"/>
+            <DockPanel>
+                <Button Content="Proceed to CheckOut" Command="{Binding Path=CheckOutCommand}" Width="200" Height="50"/>
+                <Separator Width="20" Background="Transparent"/>
 
-        <Button Content="Proceed to CheckOut" Command="{Binding Path=CheckOutCommand}" Width="200" Height="50"/>
+
+                <Label Content="{Binding Path=CheckOutMessage}"/>
+            </DockPanel>
+       
 
 
-    </StackPanel>
+        </StackPanel>
     
     <StackPanel x:Name="ordersview">
-        <Button Content="Back to Dashboard"  />
         <Separator Height="20" Background="Transparent"/>
 
         <Label Content="Your Order History" HorizontalAlignment="Center" FontSize="30px" Background="CadetBlue"/>
         <Separator Height="20" Background="Transparent"/>
 
-        <DataGrid Height="100" ItemsSource="{Binding Path=OrderHistory}"
+            <DataGrid Height="100" ItemsSource="{Binding Path=OrderHistory}"
                   SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID"
                                     Width="Auto" 
-                                    Binding="{Binding Path=OrderID}"/>
+                                    Binding="{Binding Path=OrderId}"/>
                 <DataGridTextColumn Header="Product Name"
                                     Width="Auto"
                                     Binding="{Binding Path=ProductName}"
                                     />
-                <DataGridTextColumn Header=" Price"
+                    <DataGridTextColumn Header=" Quantity"
                                     Width="Auto"
                                     Binding="{Binding Path=Quantity}"
                                     />
 
-                <DataGridTextColumn Header="Total"
+                <DataGridTextColumn Header="Price"
                                     Width="Auto"
-                                    Binding="{Binding Path=Total}"
+                                    Binding="{Binding Path=Price}"
                                     />
 
             </DataGrid.Columns>
 
         </DataGrid>
+            <Button Content="View Order History"  Command="{Binding Path=ViewOrderHistoryCommand}" Width="100" Height="50" />
 
-    </StackPanel>
+        </StackPanel>
     </DockPanel>
 </Window>

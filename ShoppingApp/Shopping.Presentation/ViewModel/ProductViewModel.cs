@@ -22,9 +22,10 @@ namespace Shopping.Presentation.ViewModel
 
         public ObservableCollection<Cart> listOfCartItems;
 
-        public ObservableCollection<Cart> orderHistory;
+        public ObservableCollection<Order> orderHistory;
 
-        public ObservableCollection<Cart> OrderHistory
+
+        public ObservableCollection<Order> OrderHistory
         {
             get { return orderHistory; }
             set
@@ -41,9 +42,13 @@ namespace Shopping.Presentation.ViewModel
                 listOfCartItems = value;
                 NotifyPropertyChanged(nameof(ListOfCartItems));
             }
-        }
+        }   
         public DelegateCommand AddToCartCommand { get; }
         public DelegateCommand ViewCartCommand { get; }
+
+        public DelegateCommand CheckOutCommand { get; }
+        public DelegateCommand ViewOrderHistoryCommand { get; }
+        
         private readonly Service service;
 
         public Products SelectedItem { get; set; }
@@ -74,6 +79,20 @@ namespace Shopping.Presentation.ViewModel
 
             }
         }
+        private string checkOutMessage;
+        public string CheckOutMessage
+        {
+            get
+            {
+                return checkOutMessage;
+            }
+            set
+            {
+                checkOutMessage = value;
+                NotifyPropertyChanged(nameof(CheckOutMessage));
+            }
+        }
+
 
         private string totalCartPrice;
         public string TotalCartPrice
@@ -100,11 +119,37 @@ namespace Shopping.Presentation.ViewModel
 
             AddToCartCommand = new DelegateCommand(AddToCart);
                 ViewCartCommand = new DelegateCommand(ViewCart);
+            CheckOutCommand = new DelegateCommand(CheckOut);
+            ViewOrderHistoryCommand = new DelegateCommand(ViewOrderHistory);
 
             TotalCartPrice = "Total Price=";
+            checkOutMessage = "CheckOut Please!!";
         }
+        public void ViewOrderHistory(object parameter)
+        {
+           
+            int userID;
 
-        public void ViewCart(object parameter) {
+            userID = service.getUserId(UserName);
+
+
+            OrderHistory = CreateOrderHistoryCollection(userID);
+        }
+        public void CheckOut(object parameter)
+        {
+            int userID;
+            userID = service.getUserId(UserName);
+            bool status=service.createOrder(userID);
+            if (status)
+            {
+                CheckOutMessage = "Check Out Successfull !!!";
+            }
+            else
+            {
+                CheckOutMessage = "Check Out Failed !!!";
+            }
+        }
+            public void ViewCart(object parameter) {
             int userID;
             //string userName = service.getLoggedUser();
             userID = service.getUserId(UserName);
@@ -157,6 +202,13 @@ namespace Shopping.Presentation.ViewModel
 
             return new ObservableCollection<Cart>(cart);
         }
+        public ObservableCollection<Order> CreateOrderHistoryCollection(int userID)
+        {
+            List<Order> orders = new List<Order>();
+            orders = service.viewOrderHistory(userID);
+            return new ObservableCollection<Order>(orders);
+        }
+
         private void NotifyPropertyChanged(string parameterName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(parameterName));

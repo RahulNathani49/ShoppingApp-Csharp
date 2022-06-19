@@ -16,7 +16,16 @@ namespace Shopping.Core.Entities
             ProductQuantity = productQuantity;
             Discount = discount;
         }
+        public Cart( int productId, int productQuantity)
+        {
+            ProductId = productId;
+            ProductQuantity= productQuantity;
 
+        }
+        public int ProductId
+        {
+            get; set;
+        }
         public string ProductName
         {
             get; set;

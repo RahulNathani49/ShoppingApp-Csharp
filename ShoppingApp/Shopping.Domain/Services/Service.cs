@@ -98,7 +98,54 @@ namespace Shopping.Domain.Services
 
         }
 
-        
+        public bool createOrder(int userID)
+        {
+            int orderId = userRepository.createOrderId(userID);
+            List<Cart> itemsInUserCart = new List<Cart>();
+            itemsInUserCart = userRepository.getItems(userID);
+           
+            for (int i = 0; i < itemsInUserCart.Count; i++)
+            {
+                   userRepository.createOrder(itemsInUserCart[i], orderId);
+            }
+         return userRepository.emptyCart(userID);
+           
+
+        }
+
+        public List<Order> viewOrderHistory(int userID)
+        {
+            //  List<Order> orders = new List<Order>();
+            //  List<int> orderidlist = new List<int>();
+            //orderidlist =  userRepository.getOrderIds(userID);
+            // string allOrderId = ParseOrderIDs(orderidlist);
+            /* if (orderidlist.Count != 0)
+             {
+
+             }
+             else
+             {
+                 return null;     
+             }*/
+            return userRepository.displayOrderHistory(userID);
+        }
+
+        private string ParseOrderIDs(List<int> orderidlist)
+        {
+            string result = "";
+            for(int i=0; i<orderidlist.Count; i++)
+            {
+                if (i < orderidlist.Count - 1) {
+                    result += orderidlist[i].ToString() + ",";
+                }
+                else
+                {
+                    result += orderidlist[i].ToString();
+                }
+                
+            }
+            return result;
+        }
     }
 
 }
