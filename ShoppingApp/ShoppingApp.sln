@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Auth", "Shopping.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{5D8F5C13-9A40-40C4-B7A6-8725B28D8A00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeExam.Presentation", "EmployeeExam.Presentation\EmployeeExam.Presentation.csproj", "{50672BCA-4962-47DB-BDF2-8DCCA0E3F438}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Presentation", "Shopping.Presentation\Shopping.Presentation.csproj", "{B78E1950-A8ED-488A-8B54-C328B5D2DCFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Presentation", "Shopping.Presentation\Shopping.Presentation.csproj", "{B78E1950-A8ED-488A-8B54-C328B5D2DCFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{5D8F5C13-9A40-40C4-B7A6-8725B28D8A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8F5C13-9A40-40C4-B7A6-8725B28D8A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D8F5C13-9A40-40C4-B7A6-8725B28D8A00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50672BCA-4962-47DB-BDF2-8DCCA0E3F438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50672BCA-4962-47DB-BDF2-8DCCA0E3F438}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50672BCA-4962-47DB-BDF2-8DCCA0E3F438}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50672BCA-4962-47DB-BDF2-8DCCA0E3F438}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B78E1950-A8ED-488A-8B54-C328B5D2DCFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B78E1950-A8ED-488A-8B54-C328B5D2DCFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B78E1950-A8ED-488A-8B54-C328B5D2DCFB}.Release|Any CPU.ActiveCfg = Release|Any CPU

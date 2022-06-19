@@ -93,6 +93,7 @@ namespace Shopping.Data
 
         }
 
+
         private Cart getCartList(SqlDataReader reader)
         {
             return new Cart(
@@ -155,7 +156,22 @@ namespace Shopping.Data
                 return userId;
             }
             return 0;
-
+        }
+        public string getUserName(string userName)
+        {
+            using SqlConnection conn = new(connectionString);
+            conn.Open();
+            using SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select UserName from dbo.Users1 where UserName = @userName";
+            cmd.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
+            SqlDataReader reader = cmd.ExecuteReader();
+            string name;
+            if (reader.Read())
+            {
+                name = reader.GetString(0);
+                return name;
+            }
+            return null;
         }
 
         private Products GetProductFromReader(SqlDataReader reader)

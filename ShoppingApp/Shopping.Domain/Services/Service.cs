@@ -53,6 +53,10 @@ namespace Shopping.Domain.Services
 
 
         }
+        public string getUserName(string userName)
+        {
+            return userRepository.getUserName(userName);
+        }
 
         public bool addToCart(int userID, int productId, int quantity)
         {
@@ -93,6 +97,8 @@ namespace Shopping.Domain.Services
             }
 
         }
+
+        
     }
 
 }

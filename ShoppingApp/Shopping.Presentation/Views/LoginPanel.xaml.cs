@@ -24,17 +24,38 @@ namespace Shopping.Presentation.Views
     {
         public LoginPanel()
         {
+       
             InitializeComponent();
-            
             DataContext = new UserViewModel();
-           
         }
 
-        private void LoginClick(object sender, RoutedEventArgs e)
-        {
-             
-           /* NavigationService.GetNavigationService(this)
-      .Navigate(new Uri("/Views/LoginPanel.xaml", UriKind.RelativeOrAbsolute));*/
-        }
+        //private void OnLoginClick(object sender, RoutedEventArgs e)
+        //{
+
+        //    productsview.Visibility = Visibility.Visible;
+        //    Loginsection.Visibility = Visibility.Hidden;
+
+
+        //}
+
+        //private void OnLogOutClick(object sender, RoutedEventArgs e)
+        //{
+        //    productsview.Visibility = Visibility.Hidden;
+        //    Loginsection.Visibility = Visibility.Visible;
+
+        //}
+
+        //private void OnCheckoutClick(object sender, RoutedEventArgs e)
+        //{
+        //    ordersview.Visibility = Visibility.Visible;
+        //    productsview.Visibility = Visibility.Hidden;
+
+        //}
+
+        //private void OnBackClick(object sender, RoutedEventArgs e)
+        //{
+        //    ordersview.Visibility = Visibility.Hidden;
+        //    productsview.Visibility = Visibility.Visible;
+        //}
     }
 }

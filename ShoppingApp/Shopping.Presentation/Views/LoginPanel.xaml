@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
-        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+        
+        <StackPanel Orientation="Vertical" x:Name="Loginsection"  HorizontalAlignment="Center">
 
-            <Label Content="Login Page" HorizontalAlignment="Center"/>
+            <Label Content="Login Page" HorizontalAlignment="Center" Background="CadetBlue" FontSize="30px"/>
             <Label Content="{Binding Path=Message}" HorizontalAlignment="Center"/>
             <DockPanel>
                 <Label Content="Username"/>
@@ -39,41 +40,12 @@
             <Separator>
 
             </Separator>
-            <Button Content="Login" Command="{Binding Path=LoginCommand}" Click="LoginClick"/>
+            <Button Content="Login" Command="{Binding Path=LoginCommand}" />
+
 
 
         </StackPanel>
-        <local:DashboardPanel/>
-        <DataGrid Height="100" ItemsSource="{Binding Path=ListOfCartItems}"
-                  SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Product Name"
-                                    Width="Auto" 
-                                    Binding="{Binding Path=ProductName}"/>
-                <DataGridTextColumn Header="Product Description"
-                                    Width="Auto"
-                                    Binding="{Binding Path=ProductDescription}"
-                                    />
-                <DataGridTextColumn Header="Product Price"
-                                    Width="Auto"
-                                    Binding="{Binding Path=ProductPrice}"
-                                    />
-                <DataGridTextColumn Header="Product Discount"
-                                    Width="Auto"
-                                    Binding="{Binding Path=Discount}"
-                                    />
-                <DataGridTextColumn Header="Product Quantity"
-                                    Width="Auto"
-                                    Binding="{Binding Path=ProductQuantity}"
-                                    />
-                <DataGridTextColumn Header="Total"
-                                    Width="Auto"
-                                    Binding="{Binding Path=ItemTotal}"
-                                    />
 
-            </DataGrid.Columns>
-
-        </DataGrid>
     </DockPanel>
     
 </UserControl>

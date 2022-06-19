@@ -15,11 +15,25 @@ namespace Shopping.Presentation.ViewModel
     public class ProductViewModel : INotifyPropertyChanged
 
     {
+
+       
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<Products> Products { get; }
 
         public ObservableCollection<Cart> listOfCartItems;
-        
+
+        public ObservableCollection<Cart> orderHistory;
+
+        public ObservableCollection<Cart> OrderHistory
+        {
+            get { return orderHistory; }
+            set
+            {
+                orderHistory = value;
+                NotifyPropertyChanged(nameof(OrderHistory));
+            }
+        }
+
         public ObservableCollection<Cart> ListOfCartItems {
             get { return listOfCartItems; } 
             set
@@ -41,6 +55,7 @@ namespace Shopping.Presentation.ViewModel
             set { 
                 quantity = value;
                 AddToCartCommand.NotifyCanExecuteChanged();
+                NotifyPropertyChanged(nameof(Quantity));
 
             }
         }
@@ -74,14 +89,14 @@ namespace Shopping.Presentation.ViewModel
 
             }
         }
-
-        public ProductViewModel()
+        public string UserName { get; set; }
+        public ProductViewModel(string users)
         {
-
+            UserName = users;
             Message = "Error Message";
             service = new Service();
             Products = CreateCollection();
-            ListOfCartItems = CreateCartCollection(1001);
+           // ListOfCartItems = CreateCartCollection(userID);
 
             AddToCartCommand = new DelegateCommand(AddToCart);
                 ViewCartCommand = new DelegateCommand(ViewCart);
@@ -91,7 +106,8 @@ namespace Shopping.Presentation.ViewModel
 
         public void ViewCart(object parameter) {
             int userID;
-            userID = service.getUserId("Het");
+            //string userName = service.getLoggedUser();
+            userID = service.getUserId(UserName);
             ListOfCartItems= CreateCartCollection(userID);
             decimal finalPrice = getFinalPrice(ListOfCartItems);
             TotalCartPrice = "Total Price="+finalPrice.ToString();
@@ -113,7 +129,7 @@ namespace Shopping.Presentation.ViewModel
             if (SelectedItem != null)
             {
                 //userID=service.getUserId(UserViewModel.loggedUser);
-                userID = service.getUserId("Het");
+                userID = service.getUserId(UserName);
                 bool isAddedToCart=   service.addToCart(userID,SelectedItem.ProductId ,Quantity);
                
                 Console.WriteLine(isAddedToCart);

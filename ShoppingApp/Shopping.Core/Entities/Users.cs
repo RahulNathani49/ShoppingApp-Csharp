@@ -17,14 +17,20 @@ namespace Shopping.Presentation
         public DateTime CreatedOn { get; set; }
         public bool IsLoggedIn { get; set; }
 
-        public Users( string userName, byte[] hashPassword, byte[] salt, DateTime createdOn, bool isLoggedIn)
+        public Users(int UserId, string userName, byte[] hashPassword, byte[] salt, DateTime createdOn, bool isLoggedIn)
         {
-
+            UserId = UserId;
             UserName = userName;
             HashPassword = hashPassword;
             Salt = salt;
             CreatedOn = createdOn;
             IsLoggedIn = isLoggedIn;
         }
+        public Users(string userName, byte[] hashPassword, byte[] salt, DateTime createdOn, bool isLoggedIn)
+            :this(0, userName,hashPassword,salt,createdOn,isLoggedIn)
+        { }
+        public Users(int id,Users users)
+            : this(id, users.UserName, users.HashPassword, users.Salt, users.CreatedOn, users.IsLoggedIn)
+        { }
     }
 }

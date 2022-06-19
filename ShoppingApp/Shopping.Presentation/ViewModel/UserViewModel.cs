@@ -1,5 +1,6 @@
 ﻿using Shopping.Domain.Services;
 using Shopping.Presentation.ViewModels;
+using Shopping.Presentation.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,6 @@ namespace Shopping.Presentation.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static string loggedUser;
 
 
         public DelegateCommand LoginCommand { get; }
@@ -66,6 +66,7 @@ namespace Shopping.Presentation.ViewModel
         {
             LoginCommand = new DelegateCommand(Login);
             service = new Service();
+
         }
         private void Login(object parameter)
         {
@@ -73,16 +74,16 @@ namespace Shopping.Presentation.ViewModel
             if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
             {
                 bool check = service.getPassword(UserName, Password);
+
                 if (check)
                 {
                     Message = "Logged in Successfully ";
-                    loggedUser = userName;
-                    int id = service.getUserId(userName);
-                    Console.WriteLine(id);
 
-                    UserName = null;
-                    Password = null;
-                   
+                    DashBoardWindow dashBoardWindow = new DashBoardWindow(UserName); 
+                    dashBoardWindow.Show();
+
+
+
                 }
                 else
                 {

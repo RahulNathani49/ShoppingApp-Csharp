@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Rahul-Web\c#\Project\Shopping-App\ShoppingApp\Shopping.Presentation\App.xaml
-3-930002002
+41675318215
 
-8-1200993228
+9993187442
 2111442515241
-Views\DashboardPanel.xaml;Views\LoginPanel.xaml;Views\MainWindow.xaml;
+Views\DashboardPanel.xaml;Views\DashBoardWindow.xaml;Views\LoginPanel.xaml;Views\MainWindow.xaml;
 
 False
 

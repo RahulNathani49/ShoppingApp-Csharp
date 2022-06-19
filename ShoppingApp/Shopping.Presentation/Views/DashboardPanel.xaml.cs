@@ -22,7 +22,9 @@ namespace Shopping.Presentation.Views
         public DashboardPanel()
         {
             InitializeComponent();
-            DataContext = new ProductViewModel();
+            
         }
+
+    
     }
 }

@@ -1,0 +1,141 @@
+﻿<Window x:Class="Shopping.Presentation.Views.DashBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shopping.Presentation.Views"
+        mc:Ignorable="d"
+        Title="DashBoardWindow" Height="450" Width="800">
+
+    <DockPanel>
+    <StackPanel x:Name="productsview" HorizontalAlignment="Center">
+        <Label Content="Products" HorizontalAlignment="Center" FontSize="30px" Background="CadetBlue"/>
+        <Separator Height="20" Background="Transparent"/>
+        <Button Content="Logout" FlowDirection="RightToLeft" />
+        <DataGrid Height="100" ItemsSource="{Binding Path=Products}" SelectedItem="{Binding Path=SelectedItem}"
+                  SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="Auto" 
+                                    Binding="{Binding Path=ProductId}"/>
+                <DataGridTextColumn Header="Product name"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductName}"
+                                    />
+                <DataGridTextColumn Header="Product Category"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductCategory}"
+                                    />
+                <DataGridTextColumn Header="Product Description"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductDescription}"
+                                    />
+                <DataGridTextColumn Header="Product Price"
+                                    Width="Auto"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=ProductPrice}"
+                                    />
+                <DataGridTextColumn Header="Discounts"
+                                    Width="Auto"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Discount}"
+                                    />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Separator Height="20" Background="Transparent"/>
+        <Label Content="{Binding Path=Message}" HorizontalAlignment="Center"/>
+
+        <Separator Height="20" Background="Transparent"/>
+
+        <Label Content="Enter Quantity after Selection" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Path=Quantity}" TextWrapping="Wrap"  Width="120"/>
+
+        <Separator Height="20" Background="Transparent"/>
+
+        <DockPanel HorizontalAlignment="Center">
+            <Button Content="Add to Cart" Command="{Binding Path=AddToCartCommand}" Width="100" Height="50"/>
+            <Separator Width="20" Background="Transparent"/>
+            <Button Content="View Cart" Command="{Binding Path=ViewCartCommand}" Width="100" Height="50"/>
+        </DockPanel>
+
+        <Separator Height="20" />
+        <Label Content="Your Cart" HorizontalAlignment="Center" FontSize="30px" Background="CadetBlue"/>
+        <Separator Height="20" Background="Transparent"/>
+
+        <DataGrid Height="100" ItemsSource="{Binding Path=ListOfCartItems}"
+                  SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product Name"
+                                    Width="Auto" 
+                                    Binding="{Binding Path=ProductName}"/>
+                <DataGridTextColumn Header="Product Description"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductDescription}"
+                                    />
+                <DataGridTextColumn Header="Product Price"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductPrice}"
+                                    />
+                <DataGridTextColumn Header="Product"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Discount}"
+                                    />
+                <DataGridTextColumn Header="Product Quantity"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductQuantity}"
+                                    />
+                <DataGridTextColumn Header="Total"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ItemTotal}"
+                                    />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+
+        <Label Content="{Binding Path=TotalCartPrice}" HorizontalAlignment="Center"/>
+        <Separator Height="20" Background="Transparent"/>
+
+        <Button Content="Proceed to CheckOut" Command="{Binding Path=CheckOutCommand}" Width="200" Height="50"/>
+
+
+    </StackPanel>
+    
+    <StackPanel x:Name="ordersview">
+        <Button Content="Back to Dashboard"  />
+        <Separator Height="20" Background="Transparent"/>
+
+        <Label Content="Your Order History" HorizontalAlignment="Center" FontSize="30px" Background="CadetBlue"/>
+        <Separator Height="20" Background="Transparent"/>
+
+        <DataGrid Height="100" ItemsSource="{Binding Path=OrderHistory}"
+                  SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" HorizontalAlignment="Center" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order ID"
+                                    Width="Auto" 
+                                    Binding="{Binding Path=OrderID}"/>
+                <DataGridTextColumn Header="Product Name"
+                                    Width="Auto"
+                                    Binding="{Binding Path=ProductName}"
+                                    />
+                <DataGridTextColumn Header=" Price"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Quantity}"
+                                    />
+
+                <DataGridTextColumn Header="Total"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Total}"
+                                    />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </StackPanel>
+    </DockPanel>
+</Window>
