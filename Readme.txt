@@ -16,10 +16,6 @@ Orders : In orders table all the orders are saved along with the order id for a 
 Run Query :
 Run the query given in the sqlquery(databasequery.sql) folder to create the database for the shopping app project  and sample values of the products.
 
-Individual Contributions :
-Harmeet - Entity Classes,Views UI(XAML),Services methods
-Omkar - Database design,Repository,Business Logic
-Rahul - ViewModels, Hashing Auth,Binding,Business Logic
 
 
 
