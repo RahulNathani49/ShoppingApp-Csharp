@@ -1,5 +1,4 @@
 Shopping APP Project
-Team(Rahul,Omkar,Harmeet)
 Functionalities :
 1.) User Can logg in using the login credential username and password which is encrypted in the users database 
 (Please create username and password using test project of Shopping App Project).
